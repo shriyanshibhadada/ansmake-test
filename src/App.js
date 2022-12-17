@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Profile from "./components/Profile";
+import { Grid } from "@mui/material";
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#FFF",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{
+          minHeight: "100vh",
+          backgroundImage:
+            "url(https://thumbs.gfycat.com/RawMiserableArachnid-size_restricted.gif)",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+          backgroundSize: "100% 100%",
+        }}
+      >
+        <Grid item sx={{ mt: 3, p: 1, mb: 10 }}>
+          <Profile />
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
 
